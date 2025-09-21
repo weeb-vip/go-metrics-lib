@@ -1,0 +1,37 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-json
+      - id: pretty-format-json
+        args: ['--autofix']
+
+  - repo: https://github.com/dnephin/pre-commit-golang
+    rev: v0.5.1
+    hooks:
+      - id: go-fmt
+      - id: go-vet
+        exclude: 'examples/'
+      - id: go-mod-tidy
+      - id: go-unit-tests
+      - id: golangci-lint
+
+  - repo: https://github.com/tekwizely/pre-commit-golang
+    rev: v1.0.0-rc.1
+    hooks:
+      - id: go-build-mod
+      - id: go-test-mod
+
+  - repo: local
+    hooks:
+      - id: go-no-replacement
+        name: Avoid committing module replacements
+        entry: bash -c 'if grep -q "replace.*=>" go.mod; then echo "go.mod contains replace directives"; exit 1; fi'
+        language: system
+        files: go\.mod$

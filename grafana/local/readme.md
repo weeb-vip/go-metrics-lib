@@ -14,16 +14,16 @@ At this point, the following containers should be spun up -
 docker-compose ps
 ```
 ```
-       Name                     Command               State                                   Ports                                 
+       Name                     Command               State                                   Ports
 -----------------------------------------------------------------------------------------------------------
-local_grafana_1      /run.sh                          Up      0.0.0.0:3000->3000/tcp,:::3000->3000/tcp                              
-local_k6-tracing_1   /k6-tracing run /example-s ...   Up                                                                            
-local_prometheus_1   /bin/prometheus --config.f ...   Up      0.0.0.0:9090->9090/tcp,:::9090->9090/tcp                              
-local_tempo_1        /tempo -config.file=/etc/t ...   Up      0.0.0.0:14268->14268/tcp,:::14268->14268/tcp,                         
-                                                              0.0.0.0:3200->3200/tcp,:::3200->3200/tcp,                             
-                                                              0.0.0.0:4317->4317/tcp,:::4317->4317/tcp,                             
-                                                              0.0.0.0:4318->4318/tcp,:::4318->4318/tcp,                             
-                                                              0.0.0.0:9411->9411/tcp,:::9411->9411/tcp 
+local_grafana_1      /run.sh                          Up      0.0.0.0:3000->3000/tcp,:::3000->3000/tcp
+local_k6-tracing_1   /k6-tracing run /example-s ...   Up
+local_prometheus_1   /bin/prometheus --config.f ...   Up      0.0.0.0:9090->9090/tcp,:::9090->9090/tcp
+local_tempo_1        /tempo -config.file=/etc/t ...   Up      0.0.0.0:14268->14268/tcp,:::14268->14268/tcp,
+                                                              0.0.0.0:3200->3200/tcp,:::3200->3200/tcp,
+                                                              0.0.0.0:4317->4317/tcp,:::4317->4317/tcp,
+                                                              0.0.0.0:4318->4318/tcp,:::4318->4318/tcp,
+                                                              0.0.0.0:9411->9411/tcp,:::9411->9411/tcp
 ```
 
 2. If you're interested you can see the wal/blocks as they are being created.

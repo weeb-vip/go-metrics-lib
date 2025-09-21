@@ -1,8 +1,8 @@
 package metrics_lib_test
 
 import (
-	"github.com/weeb-vip/go-metrics-lib/mocks"
 	metrics_lib "github.com/weeb-vip/go-metrics-lib"
+	"github.com/weeb-vip/go-metrics-lib/mocks"
 
 	"go.uber.org/mock/gomock"
 	"net/http"

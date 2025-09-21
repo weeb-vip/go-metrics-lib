@@ -1,5 +1,7 @@
 # Go Metrics Library
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 The purpose of this library is to make it easier to write metrics and provide a standard for usage of metrics. This
 library currently supports these standard metrics:
 
@@ -16,7 +18,7 @@ library currently supports these standard metrics:
 
 ### Usage of metrics specific to clients
 
-Some clients will provide their own metrics, such as the prometheus client. Additionally, metrics like Histograms 
+Some clients will provide their own metrics, such as the prometheus client. Additionally, metrics like Histograms
 support more details such as buckets. In the case of histograms, Buckets need to be set initially to keep consistency in
 metrics.
 
@@ -35,7 +37,7 @@ metrics := MetricsLib.NewMetrics(
     datadogClient,
     1,
 )
-err := metrics.HistogramMetric("graphql.resolver.millisecond", 100, // if metric not created, will have empty buckets (le:+Inf) 
+err := metrics.HistogramMetric("graphql.resolver.millisecond", 100, // if metric not created, will have empty buckets (le:+Inf)
     map[string]string{
         "resolver": "resolver",
         "service":  "graphql",
@@ -44,7 +46,7 @@ err := metrics.HistogramMetric("graphql.resolver.millisecond", 100, // if metric
 )
 ```
 
-Reference to metrics is done through the metric name, thus metrics cannot be overwritten. You may add on more labels 
+Reference to metrics is done through the metric name, thus metrics cannot be overwritten. You may add on more labels
 and overwrite label values, however labels initially set cannot be removed during runtime.
 
 ## Examples
