@@ -7,6 +7,7 @@ type ResolverMetricLabels struct {
 	Service  string
 	Protocol string
 	Result   Result
+	Env      string
 }
 
 func ResolverMetric(client Client, value float64, labels ResolverMetricLabels) error {
@@ -15,6 +16,7 @@ func ResolverMetric(client Client, value float64, labels ResolverMetricLabels) e
 		"service":  labels.Service,
 		"protocol": labels.Protocol,
 		"result":   labels.Result,
+		"env":      labels.Env,
 	}, 1)
 
 	return err

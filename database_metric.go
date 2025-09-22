@@ -14,6 +14,7 @@ type DatabaseMetricLabels struct {
 	Table   string
 	Method  DatabaseMetricMethod
 	Result  Result
+	Env     string
 }
 
 func DatabaseMetric(client Client, value float64, labels DatabaseMetricLabels) error {
@@ -22,6 +23,7 @@ func DatabaseMetric(client Client, value float64, labels DatabaseMetricLabels) e
 		"table":   labels.Table,
 		"method":  string(labels.Method),
 		"result":  labels.Result,
+		"env":     labels.Env,
 	}, 1)
 
 	return err

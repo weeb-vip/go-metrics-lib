@@ -8,6 +8,7 @@ import (
 
 type HttpMiddlewareMetricConfig struct {
 	Service string
+	Env     string
 }
 
 func HttpMiddlewareMetric(client Client, config HttpMiddlewareMetricConfig, rate float64) func(http.Handler) http.Handler {
@@ -29,6 +30,7 @@ func measurementHandler(client Client, config HttpMiddlewareMetricConfig, rate f
 					"service": config.Service,
 					"method":  r.Method,
 					"result":  "success",
+					"env":     config.Env,
 				}, rate)
 			if err != nil {
 				log.Fatal(err)

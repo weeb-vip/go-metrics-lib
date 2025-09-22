@@ -4,6 +4,7 @@ type CallMetricLabels struct {
 	Service  string
 	Function string
 	Result   Result
+	Env      string
 }
 
 func CallMetric(client Client, value float64, labels CallMetricLabels) error {
@@ -11,6 +12,7 @@ func CallMetric(client Client, value float64, labels CallMetricLabels) error {
 		"service":  labels.Service,
 		"function": labels.Function,
 		"result":   labels.Result,
+		"env":      labels.Env,
 	}, 1)
 
 	return err

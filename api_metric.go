@@ -5,6 +5,7 @@ type ApiMetricLabels struct {
 	Vendor  string
 	Call    string
 	Result  Result
+	Env     string
 }
 
 func ApiMetric(client Client, value float64, labels ApiMetricLabels) error {
@@ -13,6 +14,7 @@ func ApiMetric(client Client, value float64, labels ApiMetricLabels) error {
 		"vendor":  labels.Vendor,
 		"call":    labels.Call,
 		"result":  labels.Result,
+		"env":     labels.Env,
 	}, 1)
 
 	return err
